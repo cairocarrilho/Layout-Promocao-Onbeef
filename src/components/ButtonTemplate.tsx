@@ -1,7 +1,8 @@
-function ButtonTemplate() {
+function ButtonTemplate({onclick}) {
 
     return(<>
-        <button type="button"
+        <button type="submit"
+                onClick={onclick}
                 className="flex items-center bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-3/4">
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

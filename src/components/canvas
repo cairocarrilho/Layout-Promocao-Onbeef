@@ -1,0 +1,62 @@
+import React, { useRef, useEffect } = 'react';
+
+const CanvasImageRenderer = ({ imageUrl, width, height }) => {
+  const canvasRef = useRef(null);
+
+  useEffect(() = {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+
+    // Cria um novo objeto de imagem virtual
+    const image = new Image();
+    // Importante para evitar problemas de CORS se a imagem for de outro domínio
+    image.crossOrigin = "anonymous";
+    image.src = imageUrl;
+
+    // Desenha a imagem no canvas assim que ela carregar
+    image.onload = () = {
+      // Define as dimensões do canvas com base na imagem, se desejar,
+      // ou use as props passadas
+      canvas.width = width || image.width;
+      canvas.height = height || image.height;
+
+      ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    };
+
+    // Lida com erros de carregamento, se necessário
+    image.onerror = (err) = {
+      console.error("Erro ao carregar a imagem:", err);
+    };
+  }, [imageUrl, width, height]); // Dependências do useEffect
+
+  return <canvas ref={canvasRef} />;
+};
+
+export default CanvasImageRenderer;
+
+______________________________________________________________________________________________________________
+import React from 'react';
+import CanvasImageRenderer from './CanvasImageRenderer'; // Ajuste o caminho conforme necessário
+import minhaImagem from './assets/minha-imagem.png'; // Exemplo de importação local
+
+function App() {
+  const imageUrlFromUrl = 'https://konvajs.org/assets/yoda.jpg'; // Exemplo de URL externa
+
+  return (
+    <div className="App">
+      <h1>Renderizando Imagem com Canvas no React</h1>
+
+      <h2>Imagem Local</h2>
+      <CanvasImageRenderer imageUrl={minhaImagem} width={300} height={200} />
+
+      <h2>Imagem de URL Externa</h2>
+      <CanvasImageRenderer imageUrl={imageUrlFromUrl} width={400} height={300} />
+    </div>
+  );
+}
+
+export default App;
+
+
+https://www.youtube.com/watch?v=-RWPvVcYAC4&t=45s
+
