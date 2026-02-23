@@ -19,6 +19,8 @@ import SelectProdutcs from "../components/SelectProdutcs.tsx";
 function LayoutPrincipal(){
 
     const [imagem, setImagem] = useState('');
+    const [produtoSelecionado, setProdutoSelecionado] = useState(null);
+    const [fotoProduto, setFotoProduto] = useState('');
     const canvasComponentRef = useRef(null);
 
 
@@ -115,7 +117,10 @@ function LayoutPrincipal(){
                             </div>
                             <div >
                                 <h3 className="font-semibold mb-1"> Escolha o produto</h3>
-                                <SelectProdutcs />
+                                <SelectProdutcs
+                                    onProdutoChange={setProdutoSelecionado}
+                                    onFotoChange={setFotoProduto}
+                                />
                             </div>
 
                         </div>
@@ -125,15 +130,18 @@ function LayoutPrincipal(){
 
                         <ButtonTemplate onclick={handleDownload}/>
                     </div>
-                        <div className="p-4 rounded-lg flex flex-col items-center">
+                        <div className="p-4 rounded-lg flex flex-col items-center ">
                             <h3 className="font-medium text-gray-800 mb-3">Prévia</h3>
-                            <div className="min-w-3/4  ">
-
+                            <div className="min-w-3/4">
                                 <CanvasImagen
                                     ref={canvasComponentRef}
-                                    imageUrl={imagem}
+                                    imagemFundo={imagem}
+                                    imagemProduto={fotoProduto}
+                                    nomeProduto={produtoSelecionado?.name || ''}
+                                    precoProduto={produtoSelecionado?.price ? `R$ ${produtoSelecionado.price.toFixed(2)}/kg` : ''}
                                     width1={400}
-                                    height1={600} />
+                                    height1={600}
+                                />
                             </div>
                         </div>
 

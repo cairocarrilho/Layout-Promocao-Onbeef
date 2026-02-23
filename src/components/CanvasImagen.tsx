@@ -2,49 +2,107 @@ import { useEffect, forwardRef } from "react";
 
 /**
  * Componente CanvasImagen
- * 
- * Este componente renderiza uma imagem dentro de um elemento <canvas> do HTML5.
- * Ele usa forwardRef para permitir que o componente pai (ex: LayoutPrincipal) 
- * acesse o elemento canvas diretamente para funções de download.
- * 
- * @param imageUrl - A URL da imagem que será desenhada no canvas.
- * @param width1 - Largura opcional para o canvas. Se não fornecida, usa a largura original da imagem.
- * @param height1 - Altura opcional para o canvas. Se não fornecida, usa a altura original da imagem.
+ *
+ * Renderiza um canvas com imagem de fundo, imagem do produto e informações de preço sobreposta.
+ *
+ * @param imagemFundo - URL da imagem de fundo
+ * @param imagemProduto - URL da imagem do produto
+ * @param nomeProduto - Nome do produto
+ * @param precoProduto - Preço do produto
+ * @param width1 - Largura do canvas
+ * @param height1 - Altura do canvas
  */
-const CanvasImagen = forwardRef(({imageUrl, width1, height1,}, ref:any) => {
+const CanvasImagen = forwardRef(({imagemFundo, imagemProduto, nomeProduto, precoProduto, width1, height1}, ref:any) => {
 
     useEffect(() => {
-        // Usa a referência encaminhada (ref) para acessar o canvas
         const canvas = ref.current;
-        
         if (!canvas) return;
 
         const ctx = canvas.getContext('2d');
 
-        // Cria um novo objeto de imagem
-        const image = new Image();
-        image.src = imageUrl;
+        // Define dimensões do canvas
+        canvas.width = width1 || 400;
+        canvas.height = height1 || 600;
 
-        // Define o que acontece quando a imagem termina de carregar
-        image.onload = () => {
-            // Define as dimensões do canvas com base nas props passadas ou nas dimensões originais da imagem
-            canvas.width = width1 || image.width;
-            canvas.height = height1 || image.height;
+        // Limpa o canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Limpa o canvas antes de desenhar
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let imagensCarregadas = 0;
+        const totalImagens = imagemProduto ? 2 : 1;
 
-            // Desenha a imagem no canvas, cobrindo toda a sua área
-            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        const desenharCanvas = () => {
+            imagensCarregadas++;
+            if (imagensCarregadas === totalImagens) {
+                // Limpa novamente antes de desenhar tudo
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // 1. Desenha a imagem de fundo
+                if (imagemFundo && fundo.complete) {
+                    ctx.drawImage(fundo, 0, 0, canvas.width, canvas.height);
+                }
+
+                // 2. Desenha a imagem do produto (se existir)
+                if (imagemProduto && produto.complete) {
+                    const produtoWidth = canvas.width * 0.4;
+                    const produtoHeight = canvas.height * 0.2;
+                    const produtoX = (canvas.width - produtoWidth) / 2;
+                    const produtoY = canvas.height * 0.4;
+
+                    ctx.drawImage(produto, produtoX, produtoY, produtoWidth, produtoHeight);
+                }
+
+                // 3. Desenha o nome e preço do produto
+                if (nomeProduto || precoProduto) {
+                    const textY = canvas.height * 0.75;
+
+                    // Nome do produto
+                    if (nomeProduto) {
+                        ctx.font = 'bold 32px Arial';
+                        ctx.fillStyle = '#ffffff';
+                        ctx.textAlign = 'center';
+                        ctx.strokeStyle = '#000000';
+                        ctx.lineWidth = 3;
+                        ctx.strokeText(nomeProduto, canvas.width / 2, textY);
+                        ctx.fillText(nomeProduto, canvas.width / 2, textY);
+                    }
+
+                    // Preço do produto
+                    if (precoProduto) {
+                        ctx.font = 'bold 48px Arial';
+                        ctx.fillStyle = '#ffff00';
+                        ctx.strokeStyle = '#000000';
+                        ctx.lineWidth = 4;
+                        ctx.strokeText(precoProduto, canvas.width / 2, textY + 60);
+                        ctx.fillText(precoProduto, canvas.width / 2, textY + 60);
+                    }
+                }
+            }
         };
 
-    }, [imageUrl, width1, height1, ref]); // Adicionado 'ref' às dependências
+        // Carrega imagem de fundo
+        const fundo = new Image();
+        fundo.crossOrigin = "anonymous";
+        if (imagemFundo) {
+            fundo.src = imagemFundo;
+            fundo.onload = desenharCanvas;
+        } else {
+            desenharCanvas();
+        }
+
+        // Carrega imagem do produto
+        const produto = new Image();
+        produto.crossOrigin = "anonymous";
+        if (imagemProduto) {
+            produto.src = imagemProduto;
+            produto.onload = desenharCanvas;
+        }
+
+    }, [imagemFundo, imagemProduto, nomeProduto, precoProduto, width1, height1, ref]);
 
     return (
-        <>
-            {/* O elemento canvas agora usa a ref que vem do pai */}
+        <div className="flex justify-center ">
             <canvas ref={ref} />
-        </>
+        </div>
     );
 });
 
