@@ -16,7 +16,7 @@ const CanvasImagen = forwardRef<HTMLCanvasElement, CanvasImagenProps>(
             imagemProduto,
             nomeProduto,
             precoProduto,
-            width1 = 400,
+            width1 = 600,
             height1 = 600,
         },
         ref
@@ -53,10 +53,10 @@ const CanvasImagen = forwardRef<HTMLCanvasElement, CanvasImagenProps>(
 
                     // Produto
                     if (imagemProduto && produto.complete) {
-                        const produtoWidth = canvas.width * 0.4;
-                        const produtoHeight = canvas.height * 0.2;
+                        const produtoWidth = canvas.width * 0.6;
+                        const produtoHeight = canvas.height * 0.4;
                         const produtoX = (canvas.width - produtoWidth) / 2;
-                        const produtoY = canvas.height * 0.4;
+                        const produtoY = canvas.height * 0.3;
 
                         ctx.drawImage(
                             produto,
