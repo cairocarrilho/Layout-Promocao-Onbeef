@@ -1,0 +1,179 @@
+{
+    "products": [
+    {
+        "id": 1,
+        "name": "Alcatra",
+        "urlPhoto": "data:image/png;base64,PGh0bWwgbGFuZz0iZGUiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PUlTTy04ODU5LTEiPjx0aXRsZT5XZWl0ZXJsZWl0dW5nc2hpbndlaXM8L3RpdGxlPjxzdHlsZT5ib2R5LGRpdixhe2ZvbnQtZmFtaWx5OnNhbnMtc2VyaWZ9Ym9keXtiYWNrZ3JvdW5kLWNvbG9yOiNmZmY7bWFyZ2luLXRvcDozcHh9ZGl2e2NvbG9yOiMxZjFmMWZ9YTpsaW5re2NvbG9yOiM2ODFkYTh9YTp2aXNpdGVke2NvbG9yOiM2ODFkYTh9YTphY3RpdmV7Y29sb3I6I2VhNDMzNX1kaXYubXltR297Ym9yZGVyLXRvcDoxcHggc29saWQgI2RhZGNlMDtib3JkZXItYm90dG9tOjFweCBzb2xpZCAjZGFkY2UwO2JhY2tncm91bmQ6I2VjZWRlZTttYXJnaW4tdG9wOjFlbTt3aWR0aDoxMDAlfWRpdi5hWGdhR2J7cGFkZGluZzowLjVlbSAwO21hcmdpbi1sZWZ0OjEwcHh9ZGl2LmZUazd2ZHttYXJnaW4tbGVmdDozNXB4O21hcmdpbi10b3A6MzVweH08L3N0eWxlPjwvaGVhZD48Ym9keT48ZGl2IGNsYXNzPSJteW1HbyI+PGRpdiBjbGFzcz0iYVhnYUdiIj48Zm9udCBzdHlsZT0iZm9udC1zaXplOmxhcmdlciI+PGI+V2VpdGVybGVpdHVuZ3NoaW53ZWlzPC9iPjwvZm9udD48L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJmVGs3dmQiPiZuYnNwO0RpZSB2b24gZGlyIGJlc3VjaHRlIFNlaXRlIHZlcnN1Y2h0LCBkaWNoIGFuIDxhIGhyZWY9Imh0dHBzOi8vcHQucG5ndHJlZS5jb20vc28vYmlmZS1kZS1hbGNhdHJhIj5odHRwczovL3B0LnBuZ3RyZWUuY29tL3NvL2JpZmUtZGUtYWxjYXRyYTwvYT4gd2VpdGVyenVsZWl0ZW4uPGJyPjxicj4mbmJzcDtGYWxscyBkdSBkaWVzZSBTZWl0ZSBuaWNodCBiZXN1Y2hlbiBt9mNodGVzdCwga2FubnN0IGR1IDxhIGhyZWY9IiMiIGlkPSJ0c3VpZF8xeW9zYWJDcUtlU3FoYklQdF9UN3VBb18xIj56dXIgdm9yaGVyaWdlbiBTZWl0ZSB6dXL8Y2trZWhyZW48L2E+LjxzY3JpcHQgbm9uY2U9IjJBYzU3VnRVUTkyZElvZUR3ZXdEbEEiPihmdW5jdGlvbigpe3ZhciBpZD0ndHN1aWRfMXlvc2FiQ3FLZVNxaGJJUHRfVDd1QW9fMSc7KGZ1bmN0aW9uKCl7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoaWQpLm9uY2xpY2s9ZnVuY3Rpb24oKXt3aW5kb3cuaGlzdG9yeS5iYWNrKCk7cmV0dXJuITF9O30pLmNhbGwodGhpcyk7fSkoKTsoZnVuY3Rpb24oKXt2YXIgaWQ9J3RzdWlkXzF5b3NhYkNxS2VTcWhiSVB0X1Q3dUFvXzEnO3ZhciBjdD0nb3JpZ2lubGluayc7dmFyIG9pPSd1bmF1dGhvcml6ZWRyZWRpcmVjdCc7KGZ1bmN0aW9uKCl7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoaWQpLm9ubW91c2Vkb3duPWZ1bmN0aW9uKCl7dmFyIGI9ZG9jdW1lbnQmJmRvY3VtZW50LnJlZmVycmVyLGE9ImVuY29kZVVSSUNvbXBvbmVudCJpbiB3aW5kb3c/ZW5jb2RlVVJJQ29tcG9uZW50OmVzY2FwZSxjPSIiO2ImJihjPWEoYikpOyhuZXcgSW1hZ2UpLnNyYz0iL3VybD9zYT1UJnVybD0iK2MrIiZvaT0iK2Eob2kpKyImY3Q9IithKGN0KTtyZXR1cm4hMX07fSkuY2FsbCh0aGlzKTt9KSgpOzwvc2NyaXB0Pjxicj48YnI+PGJyPjwvZGl2PjwvYm9keT48L2h0bWw+",
+        "category": "Bovinos",
+        "price": 49.90
+    },
+    {
+        "id": 2,
+        "name": "Contra-File",
+        "urlPhoto": "",
+        "category": "Bovinos",
+        "price": 52.90
+    },
+    {
+        "id": 3,
+        "name": "Picanha",
+        "urlPhoto": "",
+        "category": "Bovinos",
+        "price": 89.90
+    },
+    {
+        "id": 4,
+        "name": "Maminha",
+        "urlPhoto": "",
+        "category": "Bovinos",
+        "price": 44.50
+    },
+    {
+        "id": 5,
+        "name": "Fraldinha",
+        "urlPhoto": "",
+        "category": "Bovinos",
+        "price": 39.90
+    },
+    {
+        "id": 6,
+        "name": "Patinho",
+        "urlPhoto": "",
+        "category": "Bovinos",
+        "price": 34.90
+    },
+    {
+        "id": 7,
+        "name": "Coxinha",
+        "urlPhoto": "",
+        "category": "Aves",
+        "price": 18.90
+    },
+    {
+        "id": 8,
+        "name": "Assinha",
+        "urlPhoto": "",
+        "category": "Aves",
+        "price": 59.90
+    },
+    {
+        "id": 9,
+        "name": "Peito de Frango",
+        "urlPhoto": "",
+        "category": "Aves",
+        "price": 21.90
+    },
+    {
+        "id": 10,
+        "name": "Filé de Peito",
+        "urlPhoto": "",
+        "category": "Aves",
+        "price": 29.90
+    },
+    {
+        "id": 11,
+        "name": "Tulipa",
+        "urlPhoto": "",
+        "category": "Aves",
+        "price": 24.90
+    },
+    {
+        "id": 12,
+        "name": "Coxa e Sobrecoxa",
+        "urlPhoto": "",
+        "category": "Aves",
+        "price": 17.90
+    },
+    {
+        "id": 13,
+        "name": "Costelinha Suína",
+        "urlPhoto": "",
+        "category": "Suínos",
+        "price": 29.90
+    },
+    {
+        "id": 14,
+        "name": "Lombo Suíno",
+        "urlPhoto": "",
+        "category": "Suínos",
+        "price": 22.90
+    },
+    {
+        "id": 15,
+        "name": "Pernil Suíno",
+        "urlPhoto": "",
+        "category": "Suínos",
+        "price": 18.90
+    },
+    {
+        "id": 16,
+        "name": "Bacon",
+        "urlPhoto": "",
+        "category": "Suínos",
+        "price": 33.90
+    },
+    {
+        "id": 17,
+        "name": "Linguiça Toscana",
+        "urlPhoto": "",
+        "category": "Suínos",
+        "price": 21.90
+    },
+    {
+        "id": 18,
+        "name": "Bandoleira",
+        "urlPhoto": "",
+        "category": "Suínos",
+        "price": 16.50
+    },
+    {
+        "id": 19,
+        "name": "Tilápia",
+        "urlPhoto": "",
+        "category": "Peixes",
+        "price": 31.90
+    },
+    {
+        "id": 20,
+        "name": "Salmão",
+        "urlPhoto": "",
+        "category": "Peixes",
+        "price": 79.90
+    },
+    {
+        "id": 21,
+        "name": "Merluza",
+        "urlPhoto": "",
+        "category": "Peixes",
+        "price": 27.90
+    },
+    {
+        "id": 22,
+        "name": "Camarão",
+        "urlPhoto": "",
+        "category": "Peixes",
+        "price": 89.90
+    },
+    {
+        "id": 23,
+        "name": "Bacalhau",
+        "urlPhoto": "",
+        "category": "Peixes",
+        "price": 99.90
+    },
+    {
+        "id": 24,
+        "name": "Carne Moída",
+        "urlPhoto": "",
+        "category": "Bovinos",
+        "price": 29.90
+    },
+    {
+        "id": 25,
+        "name": "Cupim",
+        "urlPhoto": "",
+        "category": "Bovinos",
+        "price": 41.90
+    }
+]
+}
