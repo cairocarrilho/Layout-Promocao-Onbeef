@@ -76,7 +76,7 @@ function LayoutPrincipal(){
 
         return(
             <div className="fixed inset-0 flex items-center justify-center bg-gray-300">
-                <div className=" relative  shadow-2xl bg-white flex flex-col items-center justify-center border-2 rounded-2xl w-3/4 mx-auto mt-20 border-blue-500 p-6 h-4/5">
+                <div className=" relative  shadow-2xl bg-white flex flex-col items-center justify-center border-2 rounded-2xl w-5/6 mx-auto mt-20 border-blue-500 p-6 h-6/7">
                     <div>
                         <h1 className="text-3xl font-semibold mb-4 mx-auto"> Compartilhar Promoção</h1>
                     </div>
