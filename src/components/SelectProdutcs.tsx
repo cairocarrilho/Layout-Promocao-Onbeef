@@ -1,7 +1,15 @@
 import {useState, useEffect} from "react";
-import html2canvas from "html2canvas";
+
 import alcatra from "../assets/Carnes/R11_MioloDaAlcatraGrill_2.jpg"
 import assinha from "../assets/Carnes/l-c23e55475b90435aae5ce84d4a8ead08.jpeg"
+
+// ✅ Tipo do produto
+type Produto = {
+    id: number;
+    name: string;
+    price: number;
+    category: string;
+};
 
 
 interface SelectProdutcsProps {
@@ -13,37 +21,42 @@ function SelectProdutcs({ onProdutoChange, onFotoChange }: SelectProdutcsProps) 
 
 
 
-    const [produtosCategorias, setProdutosCategorias] = useState([]);
-    const [produtoSelecionado, setProdutoSelecionado] = useState("");
-    const [fotos, setFotos] = useState("");
-
-   const carregarProdutos = async () =>{
-       try{
-           const response = await fetch("/Dados.json");
-           const data = await response.json()
-           const produtos = await data.products
-
-           const categorias = {}
-
-          produtos.forEach(produce => {
-              let categoria = produce.category;
-
-              if(!categorias[categoria]){
-                  categorias[categoria] = []
-              }
-              categorias[categoria].push(produce);
-          })
-
-           setProdutosCategorias(categorias)
+    const [produtosCategorias, setProdutosCategorias] = useState<Record<string, Produto[]>>({});
+    const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null);
 
 
-       }catch (error){
-            alert("Erro ao carregar produtos" + error)
-       }
-   }
+    const carregarProdutos = async () => {
+        try {
+            const response = await fetch("/Layout-Promocao-Onbeef/Dados.json");
+
+            if (!response.ok) {
+                throw new Error("Arquivo JSON não encontrado");
+            }
+
+            const data = await response.json();
+            const produtos = data.products;
+
+            const categorias: any = {};
+
+            produtos.forEach((produce: any) => {
+                let categoria = produce.category;
+
+                if (!categorias[categoria]) {
+                    categorias[categoria] = [];
+                }
+
+                categorias[categoria].push(produce);
+            });
+
+            setProdutosCategorias(categorias);
+
+        } catch (error) {
+            alert("Erro ao carregar produtos: " + error);
+        }
+    };
 
 
-    const handleFoto = (foto)=>{
+    const handleFoto = (foto :string)=>{
         let fotoSelecionada = "";
        switch (foto){
             case "Alcatra":
@@ -55,7 +68,7 @@ function SelectProdutcs({ onProdutoChange, onFotoChange }: SelectProdutcsProps) 
             default:
                 fotoSelecionada = "";
         }
-        setFotos(fotoSelecionada);
+
         onFotoChange(fotoSelecionada);
     }
 
@@ -78,7 +91,7 @@ function SelectProdutcs({ onProdutoChange, onFotoChange }: SelectProdutcsProps) 
                                         .flat()
                                         .find((p: any) => p.name === e.target.value);
 
-                                    setProdutoSelecionado(produto);
+                                    setProdutoSelecionado(produto || null);
                                     onProdutoChange(produto);
                                     handleFoto(e.target.value);
                                 }}

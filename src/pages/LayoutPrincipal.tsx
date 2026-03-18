@@ -13,18 +13,24 @@ import ButtonCor from "../components/ButtonCor.tsx";
 import CanvasImagen from "../components/CanvasImagen.tsx";
 import SelectProdutcs from "../components/SelectProdutcs.tsx";
 
-
+type Produto = {
+    id: number;
+    name: string;
+    price: number;
+    category: string;
+};
 
 
 function LayoutPrincipal(){
 
-    const [imagem, setImagem] = useState('');
-    const [produtoSelecionado, setProdutoSelecionado] = useState(null);
-    const [fotoProduto, setFotoProduto] = useState('');
-    const canvasComponentRef = useRef(null);
+    const [imagem, setImagem] = useState<string>("");
+    const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null);
+    const [fotoProduto, setFotoProduto] = useState<string>("");
 
+    // ✅ Tipagem correta do ref
+    const canvasComponentRef = useRef<HTMLCanvasElement | null>(null);
 
-    function handleclik(cor:String){
+    function handleclik(cor: string){
         switch (cor){
             case "azul":
                 setImagem(Azul)
@@ -69,8 +75,8 @@ function LayoutPrincipal(){
 
 
         return(
-            <>
-                <div className="flex flex-col items-center justify-center border-2 rounded-2xl w-3/4 mx-auto mt-20 border-cyan-300 p-6 h-4/5">
+            <div className="fixed inset-0 flex items-center justify-center bg-gray-300">
+                <div className=" relative  shadow-2xl bg-white flex flex-col items-center justify-center border-2 rounded-2xl w-3/4 mx-auto mt-20 border-blue-500 p-6 h-4/5">
                     <div>
                         <h1 className="text-3xl font-semibold mb-4 mx-auto"> Compartilhar Promoção</h1>
                     </div>
@@ -147,7 +153,7 @@ function LayoutPrincipal(){
 
                     </div>
                 </div>
-            </>
+            </div>
 
 
         )

@@ -1,4 +1,8 @@
-function ButtonTemplate({onclick}) {
+type ButtonTemplateProps = {
+    onclick: () => void;
+};
+
+function ButtonTemplate({onclick}: ButtonTemplateProps) {
 
     return(<>
         <button type="submit"
